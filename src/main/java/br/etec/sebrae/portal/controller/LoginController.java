@@ -2,14 +2,50 @@ package br.etec.sebrae.portal.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import br.etec.sebrae.portal.dtos.LoginDto;
 
 @Controller
 public class LoginController {
 
 	@RequestMapping("/logar")
-	public String logar() {
-		return "login/login";
+	public String logar(LoginDto login) {
+		String emailApi = "admin@admin.com";
+		String senhaApi = "123456";
+		if (emailApi.equals(login.getEmail()) && senhaApi.equals(login.getPassword())) {
+			return "redirect:solicitacoes"; 
+		};
+		return "login/cadastro";
 		
+	}
+	
+	@RequestMapping("/solicitacoes")
+	public ModelAndView solicitacoes() {
+		ModelAndView view = new ModelAndView("documentos/solicitacoes");
+		return view;
+	}
+	
+	/*
+	@RequestMapping("/cadastrologin")
+	public String cadastrarLogin(LoginDto login) {
+		return "index";
+	}
+	
+	@RequestMapping("/cadastrologin")
+	public ModelAndView cadastrarLogin(LoginDto login) {
+		ModelAndView view = new ModelAndView("index");
+		view.addObject("login",login);
+		view.addObject("sucesso","Cadastro realizado com sucesso!!");
+		return view;
+	}
+	*/
+	
+	@RequestMapping("/cadastrologin")
+	public ModelAndView cadastrarLogin(LoginDto login) {
+		ModelAndView view = new ModelAndView("index");
+		view.addObject("login", login);
+		return view;
 	}
 	
 }
