@@ -31,15 +31,15 @@ public class LoginController {
 	public String cadastrarLogin(LoginDto login) {
 		return "index";
 	}
-	
+	*/
 	@RequestMapping("/cadastrologin")
 	public ModelAndView cadastrarLogin(LoginDto login) {
 		ModelAndView view = new ModelAndView("index");
-		view.addObject("login",login);
+		// view.addObject("login",login);
 		view.addObject("sucesso","Cadastro realizado com sucesso!!");
 		return view;
 	}
-	*/
+	/*
 	
 	@RequestMapping("/cadastrologin")
 	public ModelAndView cadastrarLogin(LoginDto login) {
@@ -47,5 +47,5 @@ public class LoginController {
 		view.addObject("login", login);
 		return view;
 	}
-	
+	*/
 }
