@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org"> 
+	xmlns:th="http://www.thymeleaf.org">
 
-<head> 
-<title> Tela de login </title>
+<head>
+	<title>Tela de login</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#logar").click(function(){
+			$("#formLogar").submit();
+		});
+	});
+	$(function(){
+		$("#cadastro_op").click(function(){
+			$("#formCadastro").submit();
+		});
+	})
+	</script>
+
 </head>
 
-<body> 
-  <h1>Login</h1>
-  <form action="/logar" method="post" style="border:1px solid #ccc">
-    <div class="container">
-    <!--  
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-    -->
-      <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="Enter Email" name="email" required>
-
-      <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
-
-      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>
-       <!--  <span th:text="${login.nome}"></span> -->    
-        <span th:text="${sucesso}"></span>
-      <div class="clearfix">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
-      </div>
-    </div>
-  </form>
+<body>
+	<div class="container">
+		<div class="box">
+			<h3>Login Operador</h3>
+			<form action="/logar" method="post" id="formLogar">
+			
+<!-- 			<span th:text="${(null == login)}?'inicial == null':login.nome"></span>  -->
+				
+				<label for="username">Email</label>: <input type="text"
+					placeholder="Enter Email" id="email" name="email"
+					autofocus="autofocus" required /> <br /> <br /> 
+				
+				<label	for="password">Password</label>: <input type="password"
+					id="password" placeholder="Enter password" name="password" 
+					required /> <br /> <br /> 
+				
+				<input type="button" id="logar" value="Logar" onclick="msg()"/> 
+				
+				<input type="button" id="cadastro_op" value="Cadastrar Operador" />
+			</form>
+			<form action="/cadastroLogin" method="post" id="formCadastro"></form>
+		</div>
+	</div>
 </body>
-
 </html>

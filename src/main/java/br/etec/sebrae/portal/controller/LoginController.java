@@ -14,7 +14,7 @@ public class LoginController {
 		String emailApi = "admin@admin.com";
 		String senhaApi = "123456";
 		if (emailApi.equals(login.getEmail()) && senhaApi.equals(login.getPassword())) {
-			return "redirect:solicitacoes"; 
+			return "redirect:loginOperador"; 
 		};
 		return "login/cadastro";
 		
@@ -27,12 +27,12 @@ public class LoginController {
 	}
 	
 	/*
-	@RequestMapping("/cadastrologin")
+	@RequestMapping("/cadastrarLogin")
 	public String cadastrarLogin(LoginDto login) {
 		return "index";
 	}
 	*/
-	@RequestMapping("/cadastrologin")
+	@RequestMapping("/cadastroLogin")
 	public ModelAndView cadastrarLogin(LoginDto login) {
 		ModelAndView view = new ModelAndView("index");
 		// view.addObject("login",login);
@@ -41,11 +41,17 @@ public class LoginController {
 	}
 	/*
 	
-	@RequestMapping("/cadastrologin")
+	@RequestMapping("/cadastroLogin")
 	public ModelAndView cadastrarLogin(LoginDto login) {
 		ModelAndView view = new ModelAndView("index");
 		view.addObject("login", login);
 		return view;
 	}
 	*/
+	
+	@RequestMapping("/loginOperador")
+	public ModelAndView loginOperador() {
+		ModelAndView view = new ModelAndView("operador/home_operador");
+		return view;
+	}
 }

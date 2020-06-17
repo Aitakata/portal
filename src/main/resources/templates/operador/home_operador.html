@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"> 
+
+<head>
+	<link href="css/styles.css" rel="stylesheet" />
+	<title>Secretaria</title>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Solicitações</a>
+    <div class="dropdown-content">
+      <a href="/solicitacoes/consultar">Consultar</a>
+    </div>
+  </li>
+  
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Aluno</a>
+    <div class="dropdown-content">
+      <a href="/aluno/alterar">Alterar</a>
+      <a href="/aluno/cadastrar">Cadastrar</a>
+      <a href="/aluno/excluir">Excluir</a>
+    </div>
+  </li>
+  
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Evento</a>
+    <div class="dropdown-content">
+      <a href="/evento/alterar">Alterar</a>
+      <a href="/evento/cadastrar">Cadastrar</a>
+      <a href="/evento/excluir">Excluir</a>
+    </div>
+  </li>
+  
+</ul>
+
+</body>
+</html>

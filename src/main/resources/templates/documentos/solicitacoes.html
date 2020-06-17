@@ -2,11 +2,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org"> 
 
-<head> 
-<title> Tela de Solicitações </title>
+<head>
+	<link href="css/styles.css" rel="stylesheet" />
+	<title>Solicitações</title>
 </head>
+<body>
+  <table style="width:100%">
+  	<thead>
+   		<tr>
+    		<th>Nome Aluno</th>
+    		<th>Tipo Documento</th>
+    		<th>Data Solicitação</th>
+    		<th>Status</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr th:each="solicitacao : ${solicitacoes}">
+  			<td><span th:text="${solicitacao.nomeAluno}"></span></td>
+  			<td><span th:text="${solicitacao.tipoDocumento}"></span></td>
+  			<td><span th:text="${solicitacao.dataSolicitacao}"></span></td>
+  			<td><span th:text="${solicitacao.status}"></span></td>
+  		</tr>
+  	</tbody>
+  </table>
 
-<body> 
-<h1> Chegamos a página de apresentaçao das solicitações!!</h1>
 </body>
 </html>
